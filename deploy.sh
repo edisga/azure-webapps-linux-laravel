@@ -140,7 +140,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
     eval php composer.phar self-update
   fi
   
-  eval php composer.phar install
+  php composer.phar install
   exitWithMessageOnError "composer failed"
   cd - > /dev/null
 fi
