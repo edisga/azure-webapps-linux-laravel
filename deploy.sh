@@ -126,21 +126,10 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
   cd - > /dev/null
 fi
 
-# 5. Install Composer modules 
+# 5. Install Composer modules
 if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-
-  if [ ! -f "$DEPLOYMENT_TARGET/composer.phar" ]; then
-    echo Composer.phar not found. Downloading...
-    eval curl -s https://getcomposer.org/installer | php
-    exitWithMessageOnError "composer download failed"
-    cd - > /dev/null
-  else
-    echo Attempting to update composer.phar 
-    eval php composer.phar self-update
-  fi
-  
-  php composer.phar install
+  eval php composer.phar install
   exitWithMessageOnError "composer failed"
   cd - > /dev/null
 fi
