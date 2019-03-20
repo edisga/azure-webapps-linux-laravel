@@ -139,8 +139,8 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
     echo Attempting to update composer.phar 
     eval php composer.phar self-update
   fi
-
-  eval php composer.phar install --no-dev
+  
+  eval php composer.phar install
   exitWithMessageOnError "composer failed"
   cd - > /dev/null
 fi
